@@ -2,13 +2,26 @@
 import { ValueLineBarChart } from '@/components/ui/value-line-bar-chart'
 import React, { useEffect } from 'react'
 
-function StatsRepository({params}: {params: {user: string, repository: string}}) {
+function StatsRepository({params}: {params: Promise<{user: string, repository: string}>}) {
   const [chartData, setChartData] = React.useState<{ month: string; desktop: number }[]>([]);
   const [dailyStats, setDailyStats] = React.useState<{ total: number; percentChange: number; isPositive: boolean }>({ total: 0, percentChange: 0, isPositive: true });
+  const [resolvedParams, setResolvedParams] = React.useState<{user: string, repository: string} | null>(null);
 
   useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+      console.log(resolved.repository, resolved.user);
+    };
+    resolveParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (!resolvedParams) return;
+
     const fetchData = async () => {
-      const response = await fetch(`${process.env.URL_DB_VIEWS}/data?repository=${params.user}/${params.repository}&color=000000`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9512';
+      const response = await fetch(`${apiUrl}/data?repository=${resolvedParams.user}/${resolvedParams.repository}&color=000000`);
       const data = await response.json();
 
       // Expect data.metrics to be an array of objects: { date: number, value: number }
@@ -86,11 +99,13 @@ function StatsRepository({params}: {params: {user: string, repository: string}})
       setDailyStats({ total: totalViews, percentChange: Math.abs(percentChange), isPositive });
     };
     fetchData();
-  }, [params.user, params.repository]);
+  }, [resolvedParams]);
 
   return (
     <div className='container p-4 mx-auto'>
-      <h1 className='text-2xl font-bold mb-4'>Stats for {params.user}/{params.repository}</h1>
+      <h1 className='text-2xl font-bold mb-4'>
+        Stats for {resolvedParams ? `${resolvedParams.user}/${resolvedParams.repository}` : 'Loading...'}
+      </h1>
       <ValueLineBarChart 
         chartData={chartData} 
         totalViews={dailyStats.total}

@@ -85,7 +85,7 @@ Database stores metric → Frontend processes data → Charts display analytics
    ```bash
    cd server
    npm run serve
-   # Server runs on http://localhost:5000
+   # Server runs on http://localhost:9512
    ```
 
    **Frontend (Terminal 2)**
@@ -219,7 +219,7 @@ https://github.com/facebook/react → facebook/react
 ### Custom Color Themes
 Add color parameter to customize appearance:
 ```
-http://localhost:5000/data?repository=user/repo&color=00FF00
+http://localhost:9512/data?repository=user/repo&color=00FF00
 ```
 
 ## 🤝 Contributing
