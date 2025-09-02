@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
   /* config options here */
-};
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+    return config;
+  },
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
-export default nextConfig;
+};
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
+
+export default withMDX(nextConfig);
