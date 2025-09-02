@@ -8,7 +8,7 @@ function StatsRepository({params}: {params: {user: string, repository: string}})
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:5000/data?repository=${params.user}/${params.repository}&color=000000`);
+      const response = await fetch(`${process.env.URL_DB_VIEWS}data?repository=${params.user}/${params.repository}&color=000000`);
       const data = await response.json();
 
       // Expect data.metrics to be an array of objects: { date: number, value: number }

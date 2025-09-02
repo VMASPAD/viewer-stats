@@ -16,11 +16,12 @@
 # next.js
 /.next/
 /out/
-
+.env
 # production
 /build
 server/node_modules
 server/package-lock.json
+server/*
 # misc
 .DS_Store
 *.pem

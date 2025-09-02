@@ -9,7 +9,7 @@ app.use(express.json())
 
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect("mongodb://localhost:27017/view-stats", {
+    const connection = await mongoose.connect("mongodb://root:n439KeCuWv6Gt86Hz9lybfzhC1EW7BnoGU2qArZK5trSR57gmxbCV1WR7WQEyY4O@xg8wwso4cow8s4s8s0s8w4og:27017/?directConnection=true", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -59,6 +59,6 @@ app.get("/data", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+app.listen(9512, () => {
+  console.log("Server is running on port 9512");
 });
