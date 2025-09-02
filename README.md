@@ -2,7 +2,7 @@
 
 A full-stack application that tracks and visualizes repository view statistics with real-time analytics and beautiful interactive charts.
 
-<img src="https://viewer-stats.vercel.app/file.svg?repository=https://github.com/VMASPAD/api-orbit&color=7DDA58"/>
+<img src="https://viewer-stats.vercel.app/file.svg?repository=https://github.com/VMASPAD/viewer-stats&color=7DDA58"/>
 
 ## 🌟 Features
 
