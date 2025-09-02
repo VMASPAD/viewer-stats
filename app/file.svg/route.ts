@@ -24,7 +24,7 @@ export async function GET(request: Request) {
   // Extract username/repository format
   const repoPath = `${match[1]}/${match[2]}`;
   const color = searchParams.get("color");
-  const response = await fetch(`${process.env.URL_DB_VIEWS}/data?repository=${repoPath}&color=${color}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data?repository=${repoPath}&color=${color}`);
   const data = await response.json();
   const count = response.ok ? data.metrics.length : 0;
 
