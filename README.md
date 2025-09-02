@@ -4,9 +4,9 @@ A full-stack application that tracks and visualizes repository view statistics w
 
 Links:
 
-[Real Time](https://viewer-stats.vercel.app/file.svg?repository=https://github.com/VMASPAD/viewer-stats&color=7DDA58)
+[Image](https://view-stats-backend.hermesbackend.xyz/image?repository=https://github.com/VMASPAD/viewer-stats&color=7DDA58)
 [Dashboard](https://viewer-stats.vercel.app/VMASPAD/viewer-stats)
-<img src="https://viewer-stats.vercel.app/file.svg?repository=https://github.com/VMASPAD/viewer-stats&color=7DDA58"/>
+<img src="https://view-stats-backend.hermesbackend.xyz/image?repository=https://github.com/VMASPAD/viewer-stats&color=7DDA58"/>
 
 ## 🌟 Features
 
